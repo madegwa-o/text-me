@@ -1,0 +1,13 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: TextMe
+
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: chatdb  # Replace with your MongoDB database name
