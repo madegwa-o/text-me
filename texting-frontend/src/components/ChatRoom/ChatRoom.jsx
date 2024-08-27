@@ -70,7 +70,7 @@ const ChatRoom = ({ userData, onLogout }) => {
             setMessages((prevMessages) => [...prevMessages, payloadData]);
         }
     };
-
+    demi 
     const messagesList = messages.map((message, index) => (
         <div
             key={index}
@@ -132,7 +132,9 @@ const ChatRoom = ({ userData, onLogout }) => {
             <div className={styles.userListContainer}>
                 <h3>Online Users</h3>
                 <ul className={styles.userList}>
-                    {users.map((user) => (
+                    {users
+                    .filter((user) => user.userName !== userData.userName) // Exclude the logged-in user
+                    .map((user) => (
                         <li
                             key={user.userName}
                             className={`${styles.userItem} ${selectedUser === user.userName ? styles.activeUser : ''}`}

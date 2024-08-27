@@ -20,9 +20,16 @@ public class UserController {
     @MessageMapping("/user.addUser")
     @SendTo("/user/public")
     public UserEntity addUser(@Payload UserEntity user){
-        userService.saveUser(user);
-        System.out.println("user: "+ user);
-        return user;
+
+        
+
+        if (user.getId() != null){
+            return userRepository.findById(user.getId()).orElse(null);
+        }else {
+            userService.saveUser(user);
+            System.out.println("user: "+ user);
+            return user;
+        }
     }
 
     @MessageMapping("/user.disconnectUser")
